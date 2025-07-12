@@ -3,115 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <title>Programme d'Accompagnement en Anglais</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f7f9fa;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
       color: #333;
     }
 
     header {
-      background-color: #003366;
+      background: linear-gradient(to right, #002855, #0057a0);
       color: white;
-      padding: 30px 20px;
+      padding: 60px 20px;
       text-align: center;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 28px;
+      font-size: 36px;
+      margin-bottom: 10px;
     }
 
     header p {
-      margin-top: 8px;
-      font-size: 16px;
+      font-size: 18px;
+      margin: 0;
     }
 
-    .container {
-      max-width: 600px;
-      margin: 40px auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+    .section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
-    h2 {
-      color: #003366;
+    .section h2 {
+      color: #002855;
+      font-size: 28px;
       margin-bottom: 20px;
-      font-size: 22px;
     }
 
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: 600;
+    .section p {
+      font-size: 18px;
+      line-height: 1.7;
     }
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 15px;
+    .cta {
+      background-color: #e3f2fd;
+      text-align: center;
     }
 
-    button {
+    .cta a {
+      display: inline-block;
       margin-top: 20px;
-      width: 100%;
-      padding: 12px;
-      background-color: #003366;
+      padding: 14px 30px;
+      background-color: #0057a0;
       color: white;
-      border: none;
+      text-decoration: none;
       border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
     }
 
-    button:hover {
-      background-color: #004080;
+    .cta a:hover {
+      background-color: #003f7d;
     }
 
     footer {
-      margin-top: 60px;
+      background-color: #002855;
+      color: white;
       text-align: center;
-      font-size: 13px;
-      color: #666;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 28px;
+      }
+
+      .section h2 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Programme d'Accompagnement en Langue Anglaise(English_Learning)</h1>
-    <p>Un projet initié par R.S.V pour faciliter votre apprentissage</p>
+    <h1>Apprenez l'anglais avec passion et confiance</h1>
+    <p>Rejoignez le programme d’accompagnement guidé par R.S.V</p>
   </header>
 
-  <div class="container">
-    <h2>Formulaire d’inscription</h2>
-    <form action="https://formspree.io/f/xldnrnlq" method="POST">
-      <input type="hidden" name="_redirect" value="https://thibaut0807.github.io/R.S.V English_learning/merci.html">
-      <label for="nom">Nom complet :</label>
-      <input type="text" id="nom" name="nom" required>
+  <div class="section">
+    <h2>🌍 Pourquoi ce programme est fait pour vous</h2>
+    <p>
+      Parler anglais n’est plus un luxe, c’est une nécessité dans le monde actuel. Que ce soit pour voyager, saisir des opportunités professionnelles, réussir vos études ou tout simplement élargir vos horizons, maîtriser l’anglais est un véritable levier de transformation personnelle.  
+      <br><br>
+      Ce programme est une invitation à révéler le potentiel linguistique qui sommeille en vous. Aucun niveau requis : débutants ou faux débutants, vous êtes les bienvenus ! Ensemble, nous irons loin.
+    </p>
+  </div>
 
-      <label for="email">Adresse email :</label>
-      <input type="email" id="email" name="email" required>
+  <div class="section">
+    <h2>💡 Ce que vous allez vivre</h2>
+    <p>
+      ✅ Des modules interactifs, concrets et progressifs<br>
+      ✅ Des séances de pratique orale en groupe<br>
+      ✅ Un suivi personnalisé pour ne jamais décrocher<br>
+      ✅ Une communauté bienveillante et solidaire<br>
+      ✅ Des outils modernes pour apprendre efficacement<br><br>
+      👉 **Apprendre l’anglais devient enfin une aventure agréable, accessible et gratifiante.**
+    </p>
+  </div>
 
-      <label for="telephone">Numéro de téléphone :</label>
-      <input type="tel" id="telephone" name="telephone">
-
-      <label for="niveau">Niveau d'anglais actuel :</label>
-      <input type="text" id="niveau" name="niveau" placeholder="Débutant, Intermédiaire, Avancé">
-
-      <button type="submit">S'inscrire au programme</button>
-    </form>
+  <div class="section cta">
+    <h2>🚀 Il est temps de passer à l’action</h2>
+    <p>Faites partie des premiers inscrits et transformez votre vie avec l’anglais.</p>
+    <a href="formulaire.html">Je m’inscris maintenant</a>
   </div>
 
   <footer>
-    © 2025 Codjo Thibaut GBAMINTON – Tous droits réservés
+    © 2025 R.S.V — Tous droits réservés | Contact : RSV@gmail.com
   </footer>
+
 </body>
 </html>
+
