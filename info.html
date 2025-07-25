@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations Importantes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>SpeakFluent Coaching</h1>
+        <h2>Avant de commencer le test...</h2>
+    </header>
+
+    <section id="informations">
+        <p>Veuillez lire attentivement les instructions suivantes :</p>
+        <ul>
+            <li>Le test dure environ 15 minutes.</li>
+            <li>Répondez honnêtement aux questions.</li>
+            <li>...</li>
+        </ul>
+    </section>
+
+    <section id="regles">
+        <h2>Règles d'engagement</h2>
+        <p>En participant à ce test, vous vous engagez à :</p>
+        <ul>
+            <li>Ne pas tricher.</li>
+            <li>Respecter le temps imparti.</li>
+            <li>...</li>
+        </ul>
+    </section>
+
+    <button id="start-test-button">Commencer le test</button>
+
+    <footer>
+        <p>© 2025 SpeakFluent Coaching</p>
+    </footer>
+
+    <script>
+        document.getElementById('start-test-button').addEventListener('click', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const niveau = document.querySelector('#inscription-form select[name="niveau"]').value;
+            let testPage;
+
+            switch (niveau) {
+                case 'novice':
+                    testPage = 'novice.html';
+                    break;
+                case 'intermediate':
+                    testPage = 'intermediate.html';
+                    break;
+                case 'advanced':
+                    testPage = 'advanced.html';
+                    break;
+                default:
+                    testPage = 'novice.html'; // Par défaut, rediriger vers le test novice
+            }
+
+            window.location.href = testPage;
+        });
+    </script>
+</body>
+</html>
