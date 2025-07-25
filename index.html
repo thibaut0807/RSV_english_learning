@@ -1,134 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Programme d'Accompagnement en Anglais</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    header {
-      background: linear-gradient(to right, #002855, #0057a0);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    .section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .section h2 {
-      color: #002855;
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .cta {
-      background-color: #e3f2fd;
-      text-align: center;
-    }
-
-    .cta a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 30px;
-      background-color: #0057a0;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 18px;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta a:hover {
-      background-color: #003f7d;
-    }
-
-    footer {
-      background-color: #002855;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      margin-top: 60px;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 28px;
-      }
-
-      .section h2 {
-        font-size: 22px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakFluent Coaching</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>SpeakFluent Coaching</h1>
+        <p>Améliorez votre anglais avec notre programme personnalisé.</p>
+    </header>
 
-  <header>
-    <h1>Apprenez l'anglais avec passion et confiance</h1>
-    
-    
-    <p style="margin-top: 20px; font-size: 18px; line-height: 1.6;">
-      🙏 Bienvenue, cher(e) visiteur(se). C’est avec un profond respect et une sincère bienveillance que nous vous accueillons ici.<br>
-      Que ce programme soit pour vous une source d’inspiration, de progrès et d’épanouissement. Ensemble, ouvrons les portes d’un avenir sans frontières grâce à la maîtrise de l’anglais.
-    </p>
-  </header>
+    <section id="presentation">
+        <h2>Bienvenue !</h2>
+        <p>Description inspirante du programme...</p>
+    </section>
 
-  <div class="section">
-    <h2>🌍 Pourquoi ce programme est fait pour vous</h2>
-    <p>
-      Parler anglais n’est plus un luxe, c’est une nécessité dans le monde actuel. Que ce soit pour voyager, saisir des opportunités professionnelles, réussir vos études ou tout simplement élargir vos horizons, maîtriser l’anglais est un véritable levier de transformation personnelle.  
-      <br><br>
-      Ce programme est une invitation à révéler le potentiel linguistique qui sommeille en vous. Aucun niveau requis : débutants ou faux débutants, vous êtes les bienvenus ! Ensemble, nous irons loin.
-    </p>
-  </div>
+    <section id="inscription">
+        <h2>Inscription</h2>
+        <!-- REMPLACEZ L'URL CI-DESSOUS PAR L'IDENTIFIANT DU FORMULAIRE D'INSCRIPTION FORMSPREE -->
+        <form id="inscription-form" action="https://formspree.io/f/YOUR_FORM_ID_INSCRIPTION" method="POST">
+            <input type="hidden" name="_subject" value="Nouvelle inscription SpeakFluent Coaching">
+            <input type="hidden" name="_next" value="info.html">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required><br><br>
 
-  <div class="section">
-    <h2>💡 Ce que vous allez vivre</h2>
-    <p>
-      ✅ Des modules interactifs, concrets et progressifs<br>
-      ✅ Des séances de pratique orale en groupe<br>
-      ✅ Un suivi personnalisé pour ne jamais décrocher<br>
-      ✅ Une communauté bienveillante et solidaire<br>
-      ✅ Des outils modernes pour apprendre efficacement<br><br>
-      👉 <strong>Apprendre l’anglais devient enfin une aventure agréable, accessible et gratifiante.</strong>
-    </p>
-  </div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
 
-  <div class="section cta">
-    <h2>🚀 Il est temps de passer à l’action</h2>
-    <p>Faites partie des premiers inscrits et transformez votre vie avec l’anglais.</p>
-    <a href="formulaire.html">Je m’inscris maintenant</a>
-  </div>
+            <label for="niveau">Niveau d'anglais:</label>
+            <select id="niveau" name="niveau">
+                <option value="novice">Débutant (A1-A2)</option>
+                <option value="intermediate">Intermédiaire (B1-B2)</option>
+                <option value="advanced">Avancé (C1-C2)</option>
+            </select><br><br>
 
-  <footer>
-    © 2025 R.S.V — Tous droits réservés | Contact : RSV@gmail.com
-  </footer>
+            <button type="submit">S'inscrire et passer le test</button>
+        </form>
+    </section>
 
+    <footer>
+        <p>© 2025 SpeakFluent Coaching</p>
+    </footer>
 </body>
 </html>
