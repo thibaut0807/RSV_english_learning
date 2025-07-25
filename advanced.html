@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test d'anglais - Avancé</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Test d'anglais - Avancé (C1-C2)</h1>
+    </header>
+
+    <section id="test">
+        <!-- REMPLACEZ L'URL CI-DESSOUS PAR L'IDENTIFIANT DU FORMULAIRE DE TEST AVANCÉ FORMSPREE -->
+        <form id="test-form" action="https://formspree.io/f/YOUR_FORM_ID_ADVANCED" method="POST">
+            <input type="hidden" name="_subject" value="Résultats du test Avancé">
+            <input type="hidden" name="niveau" value="Avancé">
+            <input type="hidden" id="score-field" name="score" value="">
+
+            <h2>Question 1:</h2>
+            <p>Une question d'avancé...</p>
+            <input type="radio" id="adv1" name="q1" value="a">Réponse A<br>
+            <input type="radio" id="adv2" name="q1" value="b">Réponse B<br>
+            <input type="radio" id="adv3" name="q1" value="c">Réponse C<br><br>
+
+            <button type="submit">Valider le test</button>
+        </form>
+    </section>
+
+    <section id="resultat" style="display:none;">
+        <h2>Résultat:</h2>
+        <p id="score">Votre score est de: <span id="score-value"></span></p>
+        <p id="message"></p>
+    </section>
+
+    <footer>
+        <p>© 2025 SpeakFluent Coaching</p>
+    </footer>
+
+    <script>
+        document.getElementById('test-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let score = 0;
+            // Ajoutez votre logique de correction ici
+            document.getElementById('score-field').value = score;
+            this.submit();
+        });
+    </script>
+</body>
+</html>
