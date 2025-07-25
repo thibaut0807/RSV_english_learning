@@ -12,19 +12,22 @@
     </header>
 
     <section id="test">
-        <!-- REMPLACEZ L'URL CI-DESSOUS PAR L'IDENTIFIANT DU FORMULAIRE DE TEST INTERMÉDIAIRE FORMSPREE -->
-        <form id="test-form" action="https://formspree.io/f/YOUR_FORM_ID_INTERMEDIATE" method="POST">
-            <input type="hidden" name="_subject" value="Résultats du test Intermédiaire">
-            <input type="hidden" name="niveau" value="Intermédiaire">
-            <input type="hidden" id="score-field" name="score" value="">
+        <form
+          action="https://formspree.io/f/xpwldrzr"
+          method="POST"
+          id="test-form"
+        >
+          <input type="hidden" name="_subject" value="Résultats du test Intermédiaire">
+          <input type="hidden" name="niveau" value="Intermédiaire">
+          <input type="hidden" id="score-field" name="score" value="">
 
-            <h2>Question 1:</h2>
-            <p>Une question d'intermédiaire...</p>
-            <input type="radio" id="int1" name="q1" value="a">Réponse A<br>
-            <input type="radio" id="int2" name="q1" value="b">Réponse B<br>
-            <input type="radio" id="int3" name="q1" value="c">Réponse C<br><br>
+          <h2>Question 1:</h2>
+          <p>Une question d'intermédiaire...</p>
+          <input type="radio" id="int1" name="q1" value="a">Réponse A<br>
+          <input type="radio" id="int2" name="q1" value="b">Réponse B<br>
+          <input type="radio" id="int3" name="q1" value="c">Réponse C<br><br>
 
-            <button type="submit">Valider le test</button>
+          <button type="submit">Valider le test</button>
         </form>
     </section>
 
@@ -44,6 +47,11 @@
 
             let score = 0;
             // Ajoutez votre logique de correction ici
+            document.getElementById('score-field').value = score;
+            document.getElementById('score-value').textContent = score;
+            document.getElementById('resultat').style.display = 'block';
+            let message = '';
+
             document.getElementById('score-field').value = score;
             this.submit();
         });
