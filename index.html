@@ -25,7 +25,7 @@
           id="inscription-form"
         >
           <input type="hidden" name="_subject" value="Nouvelle inscription SpeakFluent Coaching">
-          <input type="hidden" name="_next" value="info.html">
+          <input type="hidden" name="_next" id="redirection-url" value="">
 
           <label for="nom">Nom:</label>
           <input type="text" id="nom" name="nom" required><br><br>
@@ -47,5 +47,19 @@
     <footer>
         <p>© 2025 SpeakFluent Coaching</p>
     </footer>
+
+    <script>
+        document.getElementById('inscription-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var niveau = document.getElementById('niveau').value;
+            var testPage = niveau + '.html';
+
+            // Modifier l'URL de redirection avant la soumission
+            document.getElementById('redirection-url').value = testPage;
+
+            this.submit();
+        });
+    </script>
 </body>
 </html>
