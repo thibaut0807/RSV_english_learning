@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test d'anglais - Débutant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Test d'anglais - Débutant (A1-A2)</h1>
+    </header>
+
+    <section id="test">
+        <!-- REMPLACEZ L'URL CI-DESSOUS PAR L'IDENTIFIANT DU FORMULAIRE DE TEST DÉBUTANT FORMSPREE -->
+        <form id="test-form" action="https://formspree.io/f/YOUR_FORM_ID_NOVICE" method="POST">
+            <input type="hidden" name="_subject" value="Résultats du test Débutant">
+            <input type="hidden" name="niveau" value="Débutant">
+            <input type="hidden" id="score-field" name="score" value="">
+
+            <h2>Question 1:</h2>
+            <p>Quel est le pluriel de "chat"?</p>
+            <input type="radio" id="chat1" name="q1" value="a">chats<br>
+            <input type="radio" id="chat2" name="q1" value="b">chat<br>
+            <input type="radio" id="chat3" name="q1" value="c">chattes<br><br>
+
+            <h2>Question 2:</h2>
+            <p>Comment dit-on "bonjour" en anglais?</p>
+            <input type="radio" id="bonjour1" name="q2" value="a">Hello<br>
+            <input type="radio" id="bonjour2" name="q2" value="b">Good morning<br>
+            <input type="radio" id="bonjour3" name="q2" value="c">Good afternoon<br><br>
+
+            <button type="submit">Valider le test</button>
+        </form>
+    </section>
+
+    <section id="resultat" style="display:none;">
+        <h2>Résultat:</h2>
+        <p id="score">Votre score est de: <span id="score-value"></span></p>
+        <p id="message"></p>
+    </section>
+
+    <footer>
+        <p>© 2025 SpeakFluent Coaching</p>
+    </footer>
+
+    <script>
+        document.getElementById('test-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let score = 0;
+            let q1 = document.querySelector('input[name="q1"]:checked');
+            let q2 = document.querySelector('input[name="q2"]:checked');
+
+            if (q1 && q1.value === 'a') {
+                score++;
+            }
+            if (q2 && q2.value === 'a') {
+                score++;
+            }
+
+            document.getElementById('score-value').textContent = score;
+            document.getElementById('resultat').style.display = 'block';
+
+            let message = '';
+            if (score === 2) {
+                message = 'Excellent !';
+            } else if (score === 1) {
+                message = 'Bien, continuez ainsi !';
+            } else {
+                message = 'Vous pouvez mieux faire.';
+            }
+            document.getElementById('message').textContent = message;
+
+            document.getElementById('score-field').value = score;
+            this.submit();
+        });
+    </script>
+</body>
+</html>
