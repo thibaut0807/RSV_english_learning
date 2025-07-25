@@ -12,19 +12,22 @@
     </header>
 
     <section id="test">
-        <!-- REMPLACEZ L'URL CI-DESSOUS PAR L'IDENTIFIANT DU FORMULAIRE DE TEST AVANCÉ FORMSPREE -->
-        <form id="test-form" action="https://formspree.io/f/YOUR_FORM_ID_ADVANCED" method="POST">
-            <input type="hidden" name="_subject" value="Résultats du test Avancé">
-            <input type="hidden" name="niveau" value="Avancé">
-            <input type="hidden" id="score-field" name="score" value="">
+        <form
+          action="https://formspree.io/f/xpwldrzr"
+          method="POST"
+          id="test-form"
+        >
+          <input type="hidden" name="_subject" value="Résultats du test Avancé">
+          <input type="hidden" name="niveau" value="Avancé">
+          <input type="hidden" id="score-field" name="score" value="">
 
-            <h2>Question 1:</h2>
-            <p>Une question d'avancé...</p>
-            <input type="radio" id="adv1" name="q1" value="a">Réponse A<br>
-            <input type="radio" id="adv2" name="q1" value="b">Réponse B<br>
-            <input type="radio" id="adv3" name="q1" value="c">Réponse C<br><br>
+          <h2>Question 1:</h2>
+          <p>Une question d'avancé...</p>
+          <input type="radio" id="adv1" name="q1" value="a">Réponse A<br>
+          <input type="radio" id="adv2" name="q1" value="b">Réponse B<br>
+          <input type="radio" id="adv3" name="q1" value="c">Réponse C<br><br>
 
-            <button type="submit">Valider le test</button>
+          <button type="submit">Valider le test</button>
         </form>
     </section>
 
@@ -45,6 +48,10 @@
             let score = 0;
             // Ajoutez votre logique de correction ici
             document.getElementById('score-field').value = score;
+            document.getElementById('score-value').textContent = score;
+            document.getElementById('resultat').style.display = 'block';
+            let message = '';
+
             this.submit();
         });
     </script>
