@@ -12,25 +12,28 @@
     </header>
 
     <section id="test">
-        <!-- REMPLACEZ L'URL CI-DESSOUS PAR L'IDENTIFIANT DU FORMULAIRE DE TEST DÉBUTANT FORMSPREE -->
-        <form id="test-form" action="https://formspree.io/f/YOUR_FORM_ID_NOVICE" method="POST">
-            <input type="hidden" name="_subject" value="Résultats du test Débutant">
-            <input type="hidden" name="niveau" value="Débutant">
-            <input type="hidden" id="score-field" name="score" value="">
+        <form
+          action="https://formspree.io/f/xpwldrzr"
+          method="POST"
+          id="test-form"
+        >
+          <input type="hidden" name="_subject" value="Résultats du test Débutant">
+          <input type="hidden" name="niveau" value="Débutant">
+          <input type="hidden" id="score-field" name="score" value="">
 
-            <h2>Question 1:</h2>
-            <p>Quel est le pluriel de "chat"?</p>
-            <input type="radio" id="chat1" name="q1" value="a">chats<br>
-            <input type="radio" id="chat2" name="q1" value="b">chat<br>
-            <input type="radio" id="chat3" name="q1" value="c">chattes<br><br>
+          <h2>Question 1:</h2>
+          <p>Quel est le pluriel de "chat"?</p>
+          <input type="radio" id="chat1" name="q1" value="a">chats<br>
+          <input type="radio" id="chat2" name="q1" value="b">chat<br>
+          <input type="radio" id="chat3" name="q1" value="c">chattes<br><br>
 
-            <h2>Question 2:</h2>
-            <p>Comment dit-on "bonjour" en anglais?</p>
-            <input type="radio" id="bonjour1" name="q2" value="a">Hello<br>
-            <input type="radio" id="bonjour2" name="q2" value="b">Good morning<br>
-            <input type="radio" id="bonjour3" name="q2" value="c">Good afternoon<br><br>
+          <h2>Question 2:</h2>
+          <p>Comment dit-on "bonjour" en anglais?</p>
+          <input type="radio" id="bonjour1" name="q2" value="a">Hello<br>
+          <input type="radio" id="bonjour2" name="q2" value="b">Good morning<br>
+          <input type="radio" id="bonjour3" name="q2" value="c">Good afternoon<br><br>
 
-            <button type="submit">Valider le test</button>
+          <button type="submit">Valider le test</button>
         </form>
     </section>
 
@@ -59,6 +62,7 @@
                 score++;
             }
 
+            document.getElementById('score-field').value = score;
             document.getElementById('score-value').textContent = score;
             document.getElementById('resultat').style.display = 'block';
 
@@ -72,7 +76,6 @@
             }
             document.getElementById('message').textContent = message;
 
-            document.getElementById('score-field').value = score;
             this.submit();
         });
     </script>
