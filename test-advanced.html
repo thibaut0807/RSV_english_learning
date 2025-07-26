@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced English Test - SpeakFluent Coaching</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Advanced Level Test</h1>
+    <p class="lead">Answer all 10 questions carefully. You have <strong>50 seconds per question</strong>.</p>
+    <div id="quiz"></div>
+    <div id="timer">Time left: <span id="time">50</span> seconds</div>
+    <button id="nextBtn" onclick="nextQuestion()">Next</button>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Identify the sentence with correct parallel structure:",
+        choices: [
+          "She likes dancing, to swim, and bikes.",
+          "She likes dancing, swimming, and biking.",
+          "She likes to dance, swimming, and to bike.",
+          "She likes to dance, swim, and biking."
+        ],
+        answer: 1
+      },
+      {
+        question: "Choose the correct form: 'If I ______ known about the traffic, I would have left earlier.'",
+        choices: ["had", "have", "would have", "has"],
+        answer: 0
+      },
+      {
+        question: "Which word best completes: 'Despite ______ exhausted, he continued working.'",
+        choices: ["of being", "be", "being", "to be"],
+        answer: 2
+      },
+      {
+        question: "Select the sentence with correct use of the subjunctive mood:",
+        choices: [
+          "If I was you, I would apologize.",
+          "If I were you, I would apologize.",
+          "If I am you, I would apologize.",
+          "If I be you, I would apologize."
+        ],
+        answer: 1
+      },
+      {
+        question: "Which sentence uses a reduced relative clause correctly?",
+        choices: [
+          "The man who is standing by the door is my uncle.",
+          "The man standing by the door is my uncle.",
+          "The man stand by the door is my uncle.",
+          "The man to stand by the door is my uncle."
+        ],
+        answer: 1
+      },
+      {
+        question: "Find the correct advanced collocation: 'He has a remarkable ability to ______ complex problems quickly.'",
+        choices: ["solve", "resolve", "sort out", "all of the above"],
+        answer: 3
+      },
+      {
+        question: "Which sentence correctly uses an inversion for emphasis?",
+        choices: [
+          "Never I have seen such beauty.",
+          "Never have I seen such beauty.",
+          "I never have seen such beauty.",
+          "Never I seen have such beauty."
+        ],
+        answer: 1
+      },
+      {
+        question: "Choose the correct advanced vocabulary word: 'His speech was so ______ that everyone remained silent.'",
+        choices: ["eloquent", "elementary", "obvious", "ordinary"],
+        answer: 0
+      },
+      {
+        question: "Which is grammatically correct?",
+        choices: [
+          "Had he known the truth, he would act differently.",
+          "Had he known the truth, he would have acted differently.",
+          "Had he know the truth, he acted differently.",
+          "Had he knew the truth, he would have acted differently."
+        ],
+        answer: 1
+      },
+      {
+        question: "Choose the correct phrase: 'It is high time she ______ here.'",
+        choices: ["comes", "came", "will come", "has come"],
+        answer: 1
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+    let timer;
+    let timeLeft = 50;
+
+    function loadQuestion() {
+      if (current >= questions.length) {
+        showResult();
+        return;
+      }
+
+      document.getElementById("quiz").innerHTML = `
+        <h3>${questions[current].question}</h3>
+        ${questions[current].choices.map((c, i) =>
+          `<label><input type="radio" name="q" value="${i}"> ${c}</label><br>`
+        ).join("")}
+      `;
+
+      resetTimer(50);
+    }
+
+    function nextQuestion() {
+      const selected = document.querySelector("input[name='q']:checked");
+      if (selected && parseInt(selected.value) === questions[current].answer) {
+        score++;
+      }
+      current++;
+      loadQuestion();
+    }
+
+    function resetTimer(seconds) {
+      clearInterval(timer);
+      timeLeft = seconds;
+      document.getElementById("time").innerText = timeLeft;
+      timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById("time").innerText = timeLeft;
+        if (timeLeft <= 0) {
+          nextQuestion();
+        }
+      }, 1000);
+    }
+
+    function showResult() {
+      clearInterval(timer);
+      const percentage = (score / questions.length) * 100;
+      document.getElementById("quiz").innerHTML =
+        `<h2>You scored ${percentage}%. ${
+          percentage >= 70
+            ? "Congratulations! You have completed all levels."
+            : "Keep practicing to improve your skills."
+        }</h2>`;
+      document.getElementById("timer").style.display = "none";
+      document.getElementById("nextBtn").style.display = "none";
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>
