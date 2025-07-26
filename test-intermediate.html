@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Intermediate English Test - SpeakFluent Coaching</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Intermediate Level Test</h1>
+    <p class="lead">Answer all 10 questions. You have <strong>40 seconds per question</strong>.</p>
+    <div id="quiz"></div>
+    <div id="timer">Time left: <span id="time">40</span> seconds</div>
+    <button id="nextBtn" onclick="nextQuestion()">Next</button>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Choose the correct sentence:",
+        choices: [
+          "She suggested me to take a break.",
+          "She suggested that I take a break.",
+          "She suggested I to take a break.",
+          "She suggested to take a break me."
+        ],
+        answer: 1
+      },
+      {
+        question: "Which word best completes: 'Hardly _____ the train left when it started raining.'",
+        choices: ["had", "have", "has", "was"],
+        answer: 0
+      },
+      {
+        question: "Identify the correct form: 'If I ____ enough money, I would buy a car.'",
+        choices: ["had", "have", "would have", "will have"],
+        answer: 0
+      },
+      {
+        question: "Find the synonym for 'meticulous':",
+        choices: ["careless", "thorough", "quick", "casual"],
+        answer: 1
+      },
+      {
+        question: "Which is correct?",
+        choices: [
+          "He said he will come tomorrow.",
+          "He said he would come tomorrow.",
+          "He said he come tomorrow.",
+          "He said he coming tomorrow."
+        ],
+        answer: 1
+      },
+      {
+        question: "Complete: 'No sooner had she arrived ____ she started complaining.'",
+        choices: ["when", "than", "that", "then"],
+        answer: 1
+      },
+      {
+        question: "Choose the right sentence:",
+        choices: [
+          "Despite of the rain, we went out.",
+          "In spite the rain, we went out.",
+          "In spite of the rain, we went out.",
+          "Despite the rain, we went out."
+        ],
+        answer: 3
+      },
+      {
+        question: "Pick the grammatically correct question:",
+        choices: [
+          "Do you know where is she?",
+          "Do you know where she is?",
+          "Do you know where is she going?",
+          "Do you know where going she is?"
+        ],
+        answer: 1
+      },
+      {
+        question: "Which sentence uses the past perfect tense?",
+        choices: [
+          "I ate breakfast before I left.",
+          "I had eaten breakfast before I left.",
+          "I eat breakfast every morning.",
+          "I was eating breakfast when she came."
+        ],
+        answer: 1
+      },
+      {
+        question: "Choose the correct word: 'He was accused ___ cheating.'",
+        choices: ["of", "for", "to", "by"],
+        answer: 0
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+    let timer;
+    let timeLeft = 40;
+
+    function loadQuestion() {
+      if (current >= questions.length) {
+        showResult();
+        return;
+      }
+
+      document.getElementById("quiz").innerHTML = `
+        <h3>${questions[current].question}</h3>
+        ${questions[current].choices.map((c, i) =>
+          `<label><input type="radio" name="q" value="${i}"> ${c}</label><br>`
+        ).join("")}
+      `;
+
+      resetTimer(40);
+    }
+
+    function nextQuestion() {
+      const selected = document.querySelector("input[name='q']:checked");
+      if (selected && parseInt(selected.value) === questions[current].answer) {
+        score++;
+      }
+      current++;
+      loadQuestion();
+    }
+
+    function resetTimer(seconds) {
+      clearInterval(timer);
+      timeLeft = seconds;
+      document.getElementById("time").innerText = timeLeft;
+      timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById("time").innerText = timeLeft;
+        if (timeLeft <= 0) {
+          nextQuestion();
+        }
+      }, 1000);
+    }
+
+    function showResult() {
+      clearInterval(timer);
+      const percentage = (score / questions.length) * 100;
+      if (percentage >= 70) {
+        document.getElementById("quiz").innerHTML = `<h2>You scored ${percentage}%. Great! Proceeding to Advanced Test...</h2>`;
+        setTimeout(() => {
+          window.location.href = "test-advanced.html";
+        }, 2000);
+      } else {
+        document.getElementById("quiz").innerHTML = `<h2>You scored ${percentage}%. Keep practicing!</h2>`;
+      }
+      document.getElementById("timer").style.display = "none";
+      document.getElementById("nextBtn").style.display = "none";
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>
