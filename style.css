@@ -1,58 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em 0;
-    text-align: center;
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 16px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  text-align: center;
 }
 
-section {
-    padding: 20px;
-    margin: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: #ffd700;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-footer {
-    text-align: center;
-    padding: 1em 0;
-    background-color: #333;
-    color: #fff;
+p.lead {
+  font-size: 1.1rem;
+  margin-bottom: 28px;
+  line-height: 1.5;
+  color: #e0e0e0;
 }
 
-#inscription-form label {
-    display: block;
-    margin-bottom: 5px;
+form {
+  text-align: left;
 }
 
-#inscription-form input[type="text"],
-#inscription-form input[type="email"],
-#inscription-form select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-#inscription-form button {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #ffffff;
+  color: #182848;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease;
 }
 
-#inscription-form button:hover {
-    background-color: #4cae4c;
+input:focus,
+select:focus,
+textarea:focus {
+  background: #f0f0f0;
+}
+
+select option {
+  background: #ffffff;
+  color: #182848;
+}
+
+button {
+  width: 100%;
+  background: #ffd700;
+  color: #182848;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+  transition: background 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+button:hover {
+  background: #e6c200;
+  box-shadow: 0 6px 20px rgba(230, 194, 0, 0.8);
+}
+
+.info-text {
+  margin-top: 24px;
+  font-size: 0.95rem;
+  color: #ddd;
+  text-align: center;
+  line-height: 1.4;
+  user-select: none;
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 30px 20px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
 }
