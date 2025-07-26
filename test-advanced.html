@@ -3,154 +3,250 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Advanced English Test - SpeakFluent Coaching</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Advanced Reading Test - SpeakFluent Coaching</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e5e7eb;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+    .lead {
+      text-align: center;
+      font-size: 1.1em;
+      color: #374151;
+      margin-bottom: 20px;
+    }
+    #text-block {
+      padding: 20px;
+      background: #f9fafb;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 1em;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #1e40af;
+    }
+    .timer {
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #b91c1c;
+    }
+    .question h3 {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+      padding: 8px;
+      background: #f3f4f6;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    label:hover {
+      background: #e0e7ff;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>Advanced Level Test</h1>
-    <p class="lead">Answer all 10 questions carefully. You have <strong>50 seconds per question</strong>.</p>
-    <div id="quiz"></div>
-    <div id="timer">Time left: <span id="time">50</span> seconds</div>
-    <button id="nextBtn" onclick="nextQuestion()">Next</button>
+    <h1>Advanced Level – Reading Comprehension & Skills Test</h1>
+    <p class="lead">
+      Read the passage carefully, then answer all questions. You have <strong>40 seconds per question</strong>.
+    </p>
+
+    <div id="text-block">
+      <p><strong>Using AI to talk to the deceased</strong></p>
+      <p>
+        In the age of technological advancements, artificial intelligence (AI) has found its way into almost every aspect of our lives. One of the more controversial and emotional uses is employing AI to simulate conversations with those who have passed away. While this idea may seem like a breakthrough for coping with loss, its application raises serious ethical questions and may even affect the natural healing process.
+      </p>
+      <p>
+        AI chatbots and virtual avatars are created using a deceased person’s digital footprint—social media posts, text messages, and emails. This can lead to highly realistic interactions that mimic past conversations. However, this realism can be deceptive: it cannot recreate the genuine thoughts or emotions of the deceased, and some experts argue that such interactions may hinder acceptance and prolong grief.
+      </p>
+      <p>
+        Another major concern involves privacy and consent. If a person never explicitly agreed to have their digital information used after death, generating AI versions of them might violate their rights. Moreover, companies could exploit vulnerable individuals, turning grief into a profitable business while disregarding long-term psychological consequences.
+      </p>
+      <p>
+        While some users report temporary comfort or a sense of closure, overreliance on AI may trap them in artificial relationships rather than helping them process their loss and move forward.
+      </p>
+    </div>
+
+    <button id="startBtn">Start Questions</button>
+
+    <div id="quiz-section" style="display:none;">
+      <div class="timer">Time left: <span id="timeLeft">40</span>s</div>
+      <div id="quiz"></div>
+      <button id="nextBtn">Next</button>
+    </div>
   </div>
 
   <script>
     const questions = [
       {
-        question: "Identify the sentence with correct parallel structure:",
+        q: "1) What is the primary concern expressed in the passage about using AI to communicate with the deceased?",
         choices: [
-          "She likes dancing, to swim, and bikes.",
-          "She likes dancing, swimming, and biking.",
-          "She likes to dance, swimming, and to bike.",
-          "She likes to dance, swim, and biking."
+          "A) It is too expensive for most people.",
+          "B) It might interfere with natural grieving and raise ethical issues.",
+          "C) It does not use enough technological resources.",
+          "D) It improves emotional health for everyone."
         ],
-        answer: 1
+        answer: "B"
       },
       {
-        question: "Choose the correct form: 'If I ______ known about the traffic, I would have left earlier.'",
-        choices: ["had", "have", "would have", "has"],
-        answer: 0
-      },
-      {
-        question: "Which word best completes: 'Despite ______ exhausted, he continued working.'",
-        choices: ["of being", "be", "being", "to be"],
-        answer: 2
-      },
-      {
-        question: "Select the sentence with correct use of the subjunctive mood:",
+        q: "2) Why might AI-generated conversations be considered deceptive?",
         choices: [
-          "If I was you, I would apologize.",
-          "If I were you, I would apologize.",
-          "If I am you, I would apologize.",
-          "If I be you, I would apologize."
+          "A) They are slow to generate.",
+          "B) They seem realistic but do not reflect true emotions or thoughts.",
+          "C) They cannot mimic writing style.",
+          "D) They require constant internet connection."
         ],
-        answer: 1
+        answer: "B"
       },
       {
-        question: "Which sentence uses a reduced relative clause correctly?",
+        q: "3) Which of the following BEST reflects the author's attitude toward commercial services offering 'digital avatars'?",
         choices: [
-          "The man who is standing by the door is my uncle.",
-          "The man standing by the door is my uncle.",
-          "The man stand by the door is my uncle.",
-          "The man to stand by the door is my uncle."
+          "A) They provide an innovative and universally beneficial tool.",
+          "B) They may exploit vulnerable people for financial gain.",
+          "C) They are harmless because they only use public data.",
+          "D) They are necessary for psychological healing."
         ],
-        answer: 1
+        answer: "B"
       },
       {
-        question: "Find the correct advanced collocation: 'He has a remarkable ability to ______ complex problems quickly.'",
-        choices: ["solve", "resolve", "sort out", "all of the above"],
-        answer: 3
-      },
-      {
-        question: "Which sentence correctly uses an inversion for emphasis?",
+        q: "4) The passage implies that individuals who rely heavily on AI conversations may:",
         choices: [
-          "Never I have seen such beauty.",
-          "Never have I seen such beauty.",
-          "I never have seen such beauty.",
-          "Never I seen have such beauty."
+          "A) process their grief more quickly.",
+          "B) avoid forming new social relationships.",
+          "C) become trapped in artificial connections, delaying acceptance.",
+          "D) gain a deeper understanding of technology."
         ],
-        answer: 1
+        answer: "C"
       },
       {
-        question: "Choose the correct advanced vocabulary word: 'His speech was so ______ that everyone remained silent.'",
-        choices: ["eloquent", "elementary", "obvious", "ordinary"],
-        answer: 0
-      },
-      {
-        question: "Which is grammatically correct?",
+        q: "5) Which statement is supported by the text?",
         choices: [
-          "Had he known the truth, he would act differently.",
-          "Had he known the truth, he would have acted differently.",
-          "Had he know the truth, he acted differently.",
-          "Had he knew the truth, he would have acted differently."
+          "A) AI can perfectly reproduce a person’s thoughts.",
+          "B) Privacy issues arise if the deceased never gave consent.",
+          "C) Governments encourage AI grieving tools.",
+          "D) All families welcome AI simulations."
         ],
-        answer: 1
+        answer: "B"
       },
       {
-        question: "Choose the correct phrase: 'It is high time she ______ here.'",
-        choices: ["comes", "came", "will come", "has come"],
-        answer: 1
+        q: "6) Which is the BEST title for this passage?",
+        choices: [
+          "A) Digital Life After Death: Help or Harm?",
+          "B) How to Create Your Own Chatbot",
+          "C) Technology in Social Media",
+          "D) AI as a Fast Business Model"
+        ],
+        answer: "A"
       }
+      // Tu peux ajouter jusqu’à 20 questions complexes ici.
     ];
 
     let current = 0;
     let score = 0;
+    let timeLeft = 40;
     let timer;
-    let timeLeft = 50;
+
+    const quizDiv = document.getElementById("quiz");
+    const timeDisplay = document.getElementById("timeLeft");
+    const nextBtn = document.getElementById("nextBtn");
+
+    document.getElementById("startBtn").addEventListener("click", () => {
+      document.getElementById("startBtn").style.display = "none";
+      document.getElementById("quiz-section").style.display = "block";
+      loadQuestion();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      processAnswer();
+    });
 
     function loadQuestion() {
       if (current >= questions.length) {
-        showResult();
+        finishTest();
         return;
       }
-
-      document.getElementById("quiz").innerHTML = `
-        <h3>${questions[current].question}</h3>
-        ${questions[current].choices.map((c, i) =>
-          `<label><input type="radio" name="q" value="${i}"> ${c}</label><br>`
-        ).join("")}
-      `;
-
-      resetTimer(50);
+      const qObj = questions[current];
+      quizDiv.innerHTML =
+        `<div class='question'><h3>Question ${current + 1} of ${questions.length}: ${qObj.q}</h3>` +
+        qObj.choices.map((c) =>
+          `<label><input type='radio' name='q' value='${c[0]}'> ${c}</label>`
+        ).join("") +
+        `</div>`;
+      resetTimer();
     }
 
-    function nextQuestion() {
+    function resetTimer() {
+      clearInterval(timer);
+      timeLeft = 40;
+      timeDisplay.textContent = timeLeft;
+      timer = setInterval(() => {
+        timeLeft--;
+        timeDisplay.textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          autoNextQuestion();
+        }
+      }, 1000);
+    }
+
+    function processAnswer() {
       const selected = document.querySelector("input[name='q']:checked");
-      if (selected && parseInt(selected.value) === questions[current].answer) {
+      if (selected && selected.value === questions[current].answer) {
         score++;
       }
       current++;
       loadQuestion();
     }
 
-    function resetTimer(seconds) {
-      clearInterval(timer);
-      timeLeft = seconds;
-      document.getElementById("time").innerText = timeLeft;
-      timer = setInterval(() => {
-        timeLeft--;
-        document.getElementById("time").innerText = timeLeft;
-        if (timeLeft <= 0) {
-          nextQuestion();
-        }
-      }, 1000);
+    function autoNextQuestion() {
+      processAnswer();
     }
 
-    function showResult() {
+    function finishTest() {
       clearInterval(timer);
       const percentage = (score / questions.length) * 100;
-      document.getElementById("quiz").innerHTML =
-        `<h2>You scored ${percentage}%. ${
-          percentage >= 70
-            ? "Congratulations! You have completed all levels."
-            : "Keep practicing to improve your skills."
-        }</h2>`;
-      document.getElementById("timer").style.display = "none";
-      document.getElementById("nextBtn").style.display = "none";
+      quizDiv.innerHTML =
+        `<h2>Your score: ${percentage.toFixed(0)}%</h2>` +
+        (percentage >= 70
+          ? "<p>✅ Excellent! You passed.</p>"
+          : "<p>❌ You need more practice.</p>");
+      nextBtn.style.display = "none";
     }
-
-    window.onload = loadQuestion;
   </script>
 </body>
 </html>
