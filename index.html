@@ -1,65 +1,71 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpeakFluent Coaching</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SpeakFluent Coaching - Boost Your English Fluency</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>SpeakFluent Coaching</h1>
-        <p>Améliorez votre anglais avec notre programme personnalisé.</p>
-    </header>
+  <div class="container">
+    <h1>SpeakFluent Coaching</h1>
+    <p class="lead">
+      Ready to unlock your English speaking & listening skills?<br />
+      Join our step-by-step coaching program designed to take you from Beginner to Fluent with fun, practical tests and personalized guidance.
+    </p>
 
-    <section id="presentation">
-        <h2>Bienvenue !</h2>
-        <p>Description inspirante du programme...</p>
-    </section>
+    <form id="registrationForm">
+      <label for="fullname">Full Name *</label>
+      <input type="text" id="fullname" name="Full Name" placeholder="Your full name" required />
 
-    <section id="inscription">
-        <h2>Inscription</h2>
-        <form
-          action="https://formspree.io/f/xpwldrzr"
-          method="POST"
-          id="inscription-form"
-        >
-          <input type="hidden" name="_subject" value="Nouvelle inscription SpeakFluent Coaching">
-          <input type="hidden" name="_next" id="redirection-url" value="">
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="_replyto" placeholder="example@mail.com" required />
 
-          <label for="nom">Nom:</label>
-          <input type="text" id="nom" name="nom" required><br><br>
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="Phone Number" placeholder="+123 456 7890" required />
 
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required><br><br>
+      <label for="level">Your current English level *</label>
+      <select id="level" name="English Level" required>
+        <option value="" disabled selected>Select your level</option>
+        <option value="Beginner">Beginner (A1-A2)</option>
+        <option value="Intermediate">Intermediate (B1-B2)</option>
+        <option value="Advanced">Advanced (C1-C2)</option>
+      </select>
 
-          <label for="niveau">Niveau d'anglais:</label>
-          <select id="niveau" name="niveau">
-            <option value="novice">Débutant (A1-A2)</option>
-            <option value="intermediate">Intermédiaire (B1-B2)</option>
-            <option value="advanced">Avancé (C1-C2)</option>
-          </select><br><br>
+      <label for="motivation">Why do you want to learn English? *</label>
+      <textarea id="motivation" name="Motivation" rows="4" placeholder="Tell us your motivation..." required></textarea>
 
-          <button type="submit">S'inscrire et passer le test</button>
-        </form>
-    </section>
+      <p class="info-text">
+      After submitting this form, you will start the Beginner test automatically.<br />
+      Score at least 70% to move on to Intermediate, then Advanced.<br />
+      Let's embark on your English fluency journey today!
+    </p>
 
-    <footer>
-        <p>© 2025 SpeakFluent Coaching</p>
-    </footer>
+      <button type="submit">Join SpeakFluent Now</button>
+    </form>  
+  </div>
 
-    <script>
-        document.getElementById('inscription-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Stop normal form submission
 
-            var niveau = document.getElementById('niveau').value;
-            var testPage = niveau + '.html';
+      const formData = new FormData(this);
 
-            // Modifier l'URL de redirection avant la soumission
-            document.getElementById('redirection-url').value = testPage;
-
-            this.submit();
-        });
-    </script>
+      fetch("https://formspree.io/f/xvgqabnw", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      })
+      .then(response => {
+        if (response.ok) {
+          // ✅ Redirect immediately to Beginner test
+          window.location.href = "test-beginner.html";
+        } else {
+          alert("There was a problem submitting the form. Please try again.");
+        }
+      })
+      .catch(() => alert("Network error. Please try again."));
+    });
+  </script>
 </body>
 </html>
